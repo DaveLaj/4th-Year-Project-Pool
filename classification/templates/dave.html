@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heart Disease Predictor Bot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
@@ -17,54 +19,49 @@
       </header>
       <main>
         <section>
-          <!-- length,diameter,height,whole-weight,shucked-weight,viscera-weight,shell-weight,sex_F,sex_I,sex_M -->
           <form method="post" class="form-container">
             {% csrf_token %}
-            <input type="number" name="age" id="age" placeholder="Age" required />
+            <input class="form-control"   type="number" name="age" id="age" placeholder="Age" required />
             <select name="sex" id="sex" required>
-              <option value=""></option>
+              <option selected="true" disabled="disabled">-- Sex --</option>   
               <option value="F">F</option>
               <option value="M">M</option>
             </select>
-            <!-- <input type="text" name="sex" id="sex" placeholder="Sex" required /> -->
-            <select name="cpt" id="cpt" required>
-              <option value=""></option>
+            <br>  
+            <select name="cpt" id="cpt" placeholder="Chest Pain Type"required>
+              <option selected="true" disabled="disabled">-- Chest Pain Type --</option>    
               <option value="asy">ASY</option>
               <option value="ata">ATA</option>
               <option value="nap">NAP</option>
               <option value="ta">TA</option>
             </select>
-            <!-- <input type="text" name="cpt" id="cpt" placeholder="Chest Pain Type" required /> -->
-            <input type="number" name="rbp" id="rbp" placeholder="Resting Blood Pressure" required />
-            <input type="number" name="chol" id="chol" placeholder="Cholesterol" required />
-            <input type="number" name="fbs" id="fbs" placeholder="Fasting Blood Sugar" required />
-            <select name="recg" id="recg">
+            <input  class="form-control"  type="number" name="rbp" id="rbp" placeholder="Resting Blood Pressure" required />
+            <input  class="form-control"  type="number" name="chol" id="chol" placeholder="Cholesterol" required />
+            <input  class="form-control"  type="number" name="fbs" id="fbs" placeholder="Fasting Blood Sugar" required />
+            <select name="recg" id="recg" required>
+              <option selected="true" disabled="disabled">-- Resting ECG --</option> 
               <option value="LVH">LVH</option>
               <option value="NORMAL">Normal</option>
               <option value="ST">ST</option>
-
             </select>
-            <!-- <input type="text" name="recg" id="recg" placeholder="Resting ECG" required /> -->
-            <input type="number" name="mhr" id="mhr" placeholder="Max Heartrate" required />
+            <input  class="form-control"  class="form-control"  type="number" name="mhr" id="mhr" placeholder="Max Heartrate" required />
             <select name="ea" id="ea" required>
-              <option value="n">N</option>
+              <option selected="true" disabled="disabled">-- Exercise Angina --</option> 
               <option value="y">Y</option>
+              <option value="n">N</option>
             </select>
-            <!-- <input type="text" name="ea" id="ea" placeholder="Exercise Angina" required /> -->
-            <input type="number" name="op" id="op" placeholder="Old Peak" required />
+            <input  class="form-control"  type="number" step="0.1" name="op" id="op" placeholder="Old Peak" required />
             <select name="sts" id="sts" required>
-              <option value=""></option>
+              <option selected="true" disabled="disabled">-- ST Slope --</option> 
               <option value="down">DOWN</option>
               <option value="flat">FLAT</option>
               <option value="up">UP</option>
 
             </select>
-            <!-- <input type="text" name="sts" id="sts" placeholder="ST Slope" required /> -->
-
-            <button type="submit">Submit</button>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </section>
-        <!-- <p>{{ prediction }}</p> -->
 
 
       </main>

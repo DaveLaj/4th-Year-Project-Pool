@@ -7,15 +7,19 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import BaggingClassifier
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 from sklearn.svm import SVC
-# # Create your views here.
+# # Create your views here
+# 
+def index(request):
+    return render(request, 'home.html')
+
 def text_uppercase(text):
     return text.upper()
 
 
 def baglogr_prediction(col1,col2,col3,col4,col5,col6,col7,col8,col9,col10,col11):           
-    filename = 'D:/baggingClass_jb.aiml'
+    filename = 'classification/models/baggingClass_jb.aiml'
     loaded_model_v2 = joblib.load(filename)
-    predictrun = [[int(col1),int(col2),int(col3),int(col4),int(col5),int(col6),int(col7),int(col8),int(col9),int(col10),int(col11)]]
+    predictrun = [[int(col1),int(col2),int(col3),int(col4),int(col5),int(col6),int(col7),int(col8),int(col9),float(col10),int(col11)]]
     predicted = loaded_model_v2.predict(predictrun)
     return predicted
     
@@ -104,3 +108,6 @@ def classification(request):
 
     
     return render(request, 'dave.html', context)
+
+
+
