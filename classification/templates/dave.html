@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Predictor Bot</title>
+</head>
+<body>
+    <div class="container">
+      <header>
+        <nav>
+          <h1>Heart Disease Predictor Bot</h1>
+          <p><a href="{% url 'dave' %}">Classification</a></p>
+
+        </nav>
+      </header>
+      <main>
+        <section>
+          <!-- length,diameter,height,whole-weight,shucked-weight,viscera-weight,shell-weight,sex_F,sex_I,sex_M -->
+          <form method="post" class="form-container">
+            {% csrf_token %}
+            <input type="number" name="age" id="age" placeholder="Age" required />
+            <select name="sex" id="sex" required>
+              <option value=""></option>
+              <option value="F">F</option>
+              <option value="M">M</option>
+            </select>
+            <!-- <input type="text" name="sex" id="sex" placeholder="Sex" required /> -->
+            <select name="cpt" id="cpt" required>
+              <option value=""></option>
+              <option value="asy">ASY</option>
+              <option value="ata">ATA</option>
+              <option value="nap">NAP</option>
+              <option value="ta">TA</option>
+            </select>
+            <!-- <input type="text" name="cpt" id="cpt" placeholder="Chest Pain Type" required /> -->
+            <input type="number" name="rbp" id="rbp" placeholder="Resting Blood Pressure" required />
+            <input type="number" name="chol" id="chol" placeholder="Cholesterol" required />
+            <input type="number" name="fbs" id="fbs" placeholder="Fasting Blood Sugar" required />
+            <select name="recg" id="recg">
+              <option value="LVH">LVH</option>
+              <option value="NORMAL">Normal</option>
+              <option value="ST">ST</option>
+
+            </select>
+            <!-- <input type="text" name="recg" id="recg" placeholder="Resting ECG" required /> -->
+            <input type="number" name="mhr" id="mhr" placeholder="Max Heartrate" required />
+            <select name="ea" id="ea" required>
+              <option value="n">N</option>
+              <option value="y">Y</option>
+            </select>
+            <!-- <input type="text" name="ea" id="ea" placeholder="Exercise Angina" required /> -->
+            <input type="number" name="op" id="op" placeholder="Old Peak" required />
+            <select name="sts" id="sts" required>
+              <option value=""></option>
+              <option value="down">DOWN</option>
+              <option value="flat">FLAT</option>
+              <option value="up">UP</option>
+
+            </select>
+            <!-- <input type="text" name="sts" id="sts" placeholder="ST Slope" required /> -->
+
+            <button type="submit">Submit</button>
+          </form>
+        </section>
+        <!-- <p>{{ prediction }}</p> -->
+
+
+      </main>
+      <div class="prediction">
+        <h3>this is the prediction</h3>
+        <p> Prediction : {{prediction}}</p> 
+      </div>
+      <footer>
+        <p>Dave Miller U. Lapojapo</p>
+
+      </footer>
+    </div>
+  </body>
+
+
+</html>
