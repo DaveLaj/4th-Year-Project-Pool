@@ -28,7 +28,7 @@ def baglogr_prediction(col1,col2,col3,col4,col5,col6,col7,col8,col9,col10,col11)
 def classification(request):
 
     form_posted = False
-    dictsdia = {0: "normal heart sir", 1: "you have disease"}
+    dictsdia = {0: "Subject has a normal heart.", 1: "Subject has a high probability of having a disease."}
     map_sex={'F': 0, 'M': 1}
     map_cpt={"ASY": 0, "ATA": 1, "NAP": 2, "TA": 3}
     map_recg={"LVH": 0, "NORMAL": 1, "ST": 2}

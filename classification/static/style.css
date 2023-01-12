@@ -1,0 +1,105 @@
+:root {
+    --border : 1px solid black;
+    --bradius : 5px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main{
+    background-image:url('images/v870-tang-35.jpg'); 
+    background-repeat:repeat; 
+    background-size:100%;
+
+}
+#mainform {
+    width: 500px;
+    height: auto;
+    margin-right: 2rem;
+    margin-top: 3rem;
+    border: 1px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgb(0, 0, 0);
+    background-image: linear-gradient(to right, rgb(188, 234, 248), rgb(188, 234, 248));
+    overflow: hidden;
+    padding-left: 6%;
+    padding-right: 5%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+  }
+input.form-control{
+    width: 300px;
+    margin: .7rem;
+
+
+}
+select.form-control{
+    width: 300px;
+    margin: .7rem;
+
+
+
+}
+
+#text {
+
+
+    position:relative;
+    margin-top:3rem;
+    margin-bottom: 3rem;
+}
+
+.card {
+    width: 570px;
+    height: 1000px;
+    color:rgb(1, 8, 3);
+    background-image: linear-gradient(rgb(0, 0, 0, 0.1), rgb(0, 0, 0, 0.1)), url(images/smilingdoctor.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgb(0, 0, 0);
+    box-sizing: border-box;
+    cursor: pointer;
+    margin-left: 10rem;
+    margin-top: 3rem;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+.col {
+    flex-basis: 35%;
+}
+.row{
+
+    margin-bottom: 5rem;
+}
+footer {
+    background-image: linear-gradient(to right, rgba(43, 47, 253, 0.9), rgb(42, 44, 146));
+    opacity: 75%;
+    position: relative;
+    bottom: 0;
+    padding: 1em 1.5em;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+footer p {
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+footer ul li {
+    display: inline;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+}
+footer ul li {
+    margin-left: 1em;
+}
+
+  

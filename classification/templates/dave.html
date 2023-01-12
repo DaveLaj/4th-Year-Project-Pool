@@ -5,76 +5,114 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heart Disease Predictor Bot</title>
+    {% load static %}
+    <link rel="stylesheet" href=" {% static 'style.css' %}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </head>
+<header>
+  <nav>
+    <h1 style="text-align:center">Heart Disease Predictor Bot (NAVBAR STANDIN)  </h1>
+  </nav>
+</header>
 <body>
-    <div class="container">
-      <header>
-        <nav>
-          <h1>Heart Disease Predictor Bot</h1>
-          <p><a href="{% url 'dave' %}">Classification</a></p>
+    
 
-        </nav>
-      </header>
-      <main>
-        <section>
-          <form method="post" class="form-container">
-            {% csrf_token %}
-            <input class="form-control"   type="number" name="age" id="age" placeholder="Age" required />
-            <select name="sex" id="sex" required>
-              <option selected="true" disabled="disabled">-- Sex --</option>   
-              <option value="F">F</option>
-              <option value="M">M</option>
-            </select>
-            <br>  
-            <select name="cpt" id="cpt" placeholder="Chest Pain Type"required>
-              <option selected="true" disabled="disabled">-- Chest Pain Type --</option>    
-              <option value="asy">ASY</option>
-              <option value="ata">ATA</option>
-              <option value="nap">NAP</option>
-              <option value="ta">TA</option>
-            </select>
-            <input  class="form-control"  type="number" name="rbp" id="rbp" placeholder="Resting Blood Pressure" required />
-            <input  class="form-control"  type="number" name="chol" id="chol" placeholder="Cholesterol" required />
-            <input  class="form-control"  type="number" name="fbs" id="fbs" placeholder="Fasting Blood Sugar" required />
-            <select name="recg" id="recg" required>
-              <option selected="true" disabled="disabled">-- Resting ECG --</option> 
-              <option value="LVH">LVH</option>
-              <option value="NORMAL">Normal</option>
-              <option value="ST">ST</option>
-            </select>
-            <input  class="form-control"  class="form-control"  type="number" name="mhr" id="mhr" placeholder="Max Heartrate" required />
-            <select name="ea" id="ea" required>
-              <option selected="true" disabled="disabled">-- Exercise Angina --</option> 
-              <option value="y">Y</option>
-              <option value="n">N</option>
-            </select>
-            <input  class="form-control"  type="number" step="0.1" name="op" id="op" placeholder="Old Peak" required />
-            <select name="sts" id="sts" required>
-              <option selected="true" disabled="disabled">-- ST Slope --</option> 
-              <option value="down">DOWN</option>
-              <option value="flat">FLAT</option>
-              <option value="up">UP</option>
+    <main>
+      <section>
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div id="text">
+                <b><h3>Input Manual</h3>
+                <p>Age: age of the patient [years]</p>
+                <p>Sex: sex of the patient [M: Male, F: Female]</p>
+                <p>ChestPainType: chest pain type [TA: Typical Angina, ATA: Atypical Angina, NAP: Non-Anginal Pain, ASY: Asymptomatic]</p>
+                <p>RestingBP: resting blood pressure [mm Hg]</p>
+                <p>Cholesterol: serum cholesterol [mm/dl]</p>
+                <p>FastingBS: fasting blood sugar [1: if FastingBS > 120 mg/dl, 0: otherwise]</p>
+                <p>RestingECG: resting electrocardiogram results [Normal: Normal,	ST: having ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV),	LVH: showing probable or definite left ventricular hypertrophy by Estes' criteria]</p>
+                <p>MaxHR: maximum heart rate achieved [Numeric value between 60 and 202]</p>
+                <p>ExerciseAngina: exercise-induced angina [Y: Yes, N: No]</p>
+                <p>Oldpeak: oldpeak = ST [Numeric value measured in depression]</p>
+                <p>ST_Slope: the slope of the peak exercise ST segment [Up: upsloping, Flat: flat, Down: downsloping]</p>
+                <p>HeartDisease: output class [1: heart disease, 0: Normal]</p></b>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+              
+            <div id="mainform">
+              <div id="desc">
+                <h3>Heart Disease Predictor</h3>
+                <p>The mission of this bot is to provide public health workers with a means to help determine when a person has a heart anomaliy by the context of their vitals.</p>
+                <br>
+                <p>Place the subject's vitals below:</p>
+                
+              </div>
+              <form method="post" class="form-container-sm">
+                {% csrf_token %}
+                <input class="form-control"   type="number" name="age" id="age" placeholder="Age" required />
+                <select  class="form-control" name="sex" id="sex" required="true">
+                  <option value="" selected="true" disabled="disabled">-- Sex --</option>   
+                  <option value="F">F</option>
+                  <option value="M">M</option>
+                </select>
+                <select class="form-control" name="cpt" id="cpt" placeholder="Chest Pain Type" required>
+                  <option value="" selected="true" disabled="disabled">-- Chest Pain Type --</option>    
+                  <option value="asy">ASY</option>
+                  <option value="ata">ATA</option>
+                  <option value="nap">NAP</option>
+                  <option value="ta">TA</option>
+                </select>
+                <input  class="form-control"  type="number" name="rbp" id="rbp" placeholder="Resting Blood Pressure" required />
+                <input  class="form-control"  type="number" name="chol" id="chol" placeholder="Cholesterol" required />
+                <input  class="form-control"  type="number" name="fbs" id="fbs" placeholder="Fasting Blood Sugar" required />
+                <select class="form-control" name="recg" id="recg" required>
+                  <option value="" selected="true" disabled="disabled">-- Resting ECG --</option> 
+                  <option value="LVH">LVH</option>
+                  <option value="NORMAL">Normal</option>
+                  <option value="ST">ST</option>
+                </select>
+                <input  class="form-control"  class="form-control"  type="number" name="mhr" id="mhr" placeholder="Max Heartrate" required />
+                <select class="form-control" name="ea" id="ea" required>
+                  <option value="" selected="true" disabled="disabled">-- Exercise Angina --</option> 
+                  <option value="y">Y</option>
+                  <option value="n">N</option>
+                </select>
+                <input  class="form-control"  type="number" step="0.1" name="op" id="op" placeholder="Old Peak" required />
+                <select class="form-control" name="sts" id="sts" required>
+                  <option value="" selected="true" disabled="disabled">-- ST Slope --</option> 
+                  <option value="down">DOWN</option>
+                  <option value="flat">FLAT</option>
+                  <option value="up">UP</option>
+                </select>
+                <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+              <br>
+              <br>
+              <div class="prediction">
+                <h3>Prediction Here:</h3>
+                <p>{{prediction}}</p> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            </select>
-            <br>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </section>
-
-
-      </main>
-      <div class="prediction">
-        <h3>this is the prediction</h3>
-        <p> Prediction : {{prediction}}</p> 
-      </div>
-      <footer>
-        <p>Dave Miller U. Lapojapo</p>
-
-      </footer>
-    </div>
+    </main>
+      
+   
   </body>
-
-
+  <footer>
+    <p>Dave Miller U. Lapojapo</p>
+    <ul>
+      <li><i class="fa-brands fa-github"></i></li>
+      <li><i class="fa-brands fa-facebook"></i></li>
+      <li><i class="fa-brands fa-instagram"></i></li>
+      <li><i class="fa-brands fa-twitter"></i></li>
+    </ul>
+  </footer>
 </html>
