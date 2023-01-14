@@ -1,9 +1,37 @@
-nav {
-    display: flex;
-    background-image: linear-gradient(to right, rgb(25, 43, 102), rgb(86, 119, 226));
-    opacity: 50%;
-    display: flex;
-    justify-content: space-between;
-    padding: 2em 1em;
-    border: var(--border)
-  }
+:root {
+  --border : 1px solid black;
+  --bradius : 5px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+#seal{
+  content:url('images/iitseal.png');
+  height: 30px;
+  width: 30px;
+}
+
+header {
+  display: flex;
+  background-color: linear-gradient(to right, rgb(82, 121, 250), rgb(1, 5, 20));
+  opacity: 50%;
+  justify-content: space-between;
+  padding: 2em 1em;
+  border: var(--border);  
+  height:auto;
+}
+
+.navbar-nav li{
+  padding: 0px 20px;
+}
+.navbar-nav li a:hover{
+  color:rgb(0, 255, 34);
+}
+
+

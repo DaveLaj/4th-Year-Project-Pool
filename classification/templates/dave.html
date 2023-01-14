@@ -9,15 +9,47 @@
     <link rel="stylesheet" href=" {% static 'style.css' %}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script  defer src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
 </head>
-<header>
-  <nav>
-    <h1 style="text-align:center">Heart Disease Predictor Bot (NAVBAR STANDIN)  </h1>
-  </nav>
-</header>
 <body>
-    
+  <div id="barcontainer" class="w-100">
+        
+    <nav class="navbar fixed-top navbar-expand-sm navbar-dark" style="background-color:#1b679e;">
+      <div class="container">
+        <img id="seal">
+        <h2><a class="navbar-brand" href="#">Final Projects</a></h2>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link active" href="{% url 'dave' %}">ITD105 Classification</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">ITD105 Regression</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">ITD112 Project 1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'project2' %}">ITD112 Project 2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">ITD112 Project 3</a>
+            </li>
+          </ul>
+        </div>
+      </div>   
+    </nav>
+  </div>
 
     <main>
       <section>
@@ -25,19 +57,14 @@
           <div class="col">
             <div class="card">
               <div id="text">
-                <b><h3>Input Manual</h3>
-                <p>Age: age of the patient [years]</p>
-                <p>Sex: sex of the patient [M: Male, F: Female]</p>
-                <p>ChestPainType: chest pain type [TA: Typical Angina, ATA: Atypical Angina, NAP: Non-Anginal Pain, ASY: Asymptomatic]</p>
-                <p>RestingBP: resting blood pressure [mm Hg]</p>
-                <p>Cholesterol: serum cholesterol [mm/dl]</p>
-                <p>FastingBS: fasting blood sugar [1: if FastingBS > 120 mg/dl, 0: otherwise]</p>
-                <p>RestingECG: resting electrocardiogram results [Normal: Normal,	ST: having ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV),	LVH: showing probable or definite left ventricular hypertrophy by Estes' criteria]</p>
-                <p>MaxHR: maximum heart rate achieved [Numeric value between 60 and 202]</p>
-                <p>ExerciseAngina: exercise-induced angina [Y: Yes, N: No]</p>
-                <p>Oldpeak: oldpeak = ST [Numeric value measured in depression]</p>
-                <p>ST_Slope: the slope of the peak exercise ST segment [Up: upsloping, Flat: flat, Down: downsloping]</p>
-                <p>HeartDisease: output class [1: heart disease, 0: Normal]</p></b>
+                <h3><b>Heart Disease Predictor Bot</b></h3><br><br><Br>
+                <p>The mission of this bot is to provide public health workers with a means to help determine when a person has a heart anomaly by the context of their vitals.</p>
+                <Br>
+                  <Br>
+                    <Br>
+                <p><b>This bot model was made using Bagging Logistic Regression</b></p>
+                <p><b>The accuracy of this bot is around 80%</b></p>
+                <br>
               </div>
             </div>
           </div>
@@ -45,50 +72,47 @@
               
             <div id="mainform">
               <div id="desc">
-                <h3>Heart Disease Predictor</h3>
-                <p>The mission of this bot is to provide public health workers with a means to help determine when a person has a heart anomaliy by the context of their vitals.</p>
-                <br>
+
                 <p>Place the subject's vitals below:</p>
-                
+                <br>
               </div>
               <form method="post" class="form-container-sm">
                 {% csrf_token %}
-                <input class="form-control"   type="number" name="age" id="age" placeholder="Age" required />
-                <select  class="form-control" name="sex" id="sex" required="true">
+                <input class="form-control"   type="number" name="age" id="age" placeholder="Age" title="Age of the patient [years]" required  />
+                <select  class="form-control" name="sex" id="sex" required title="Sex of the patient [M: Male, F: Female]">
                   <option value="" selected="true" disabled="disabled">-- Sex --</option>   
                   <option value="F">F</option>
                   <option value="M">M</option>
                 </select>
-                <select class="form-control" name="cpt" id="cpt" placeholder="Chest Pain Type" required>
-                  <option value="" selected="true" disabled="disabled">-- Chest Pain Type --</option>    
+                <select class="form-control" name="cpt" id="cpt" placeholder="Chest Pain Type"  title="Chest pain type [TA: Typical Angina, ATA: Atypical Angina, NAP: Non-Anginal Pain, ASY: Asymptomatic]"required>
+                  <option value="" selected="true" disabled="disabled" >-- Chest Pain Type --</option>    
                   <option value="asy">ASY</option>
                   <option value="ata">ATA</option>
                   <option value="nap">NAP</option>
                   <option value="ta">TA</option>
                 </select>
-                <input  class="form-control"  type="number" name="rbp" id="rbp" placeholder="Resting Blood Pressure" required />
-                <input  class="form-control"  type="number" name="chol" id="chol" placeholder="Cholesterol" required />
-                <input  class="form-control"  type="number" name="fbs" id="fbs" placeholder="Fasting Blood Sugar" required />
-                <select class="form-control" name="recg" id="recg" required>
+                <input  class="form-control"  type="number" name="rbp" id="rbp" placeholder="Resting Blood Pressure" title="Resting blood pressure [mm Hg]" required />
+                <input  class="form-control"  type="number" name="chol" id="chol" placeholder="Cholesterol" title="serum cholesterol [mm/dl]" required />
+                <input  class="form-control"  type="number" name="fbs" id="fbs" placeholder="Fasting Blood Sugar" title="Fasting blood sugar [1: if FastingBS > 120 mg/dl, 0: otherwise]" required />
+                <select class="form-control" name="recg" id="recg" title="Resting electrocardiogram results [Normal: Normal, ST: having ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV), LVH: showing probable or definite left ventricular hypertrophy by Estes' criteria]"required>
                   <option value="" selected="true" disabled="disabled">-- Resting ECG --</option> 
                   <option value="LVH">LVH</option>
                   <option value="NORMAL">Normal</option>
                   <option value="ST">ST</option>
                 </select>
-                <input  class="form-control"  class="form-control"  type="number" name="mhr" id="mhr" placeholder="Max Heartrate" required />
-                <select class="form-control" name="ea" id="ea" required>
+                <input  class="form-control"  class="form-control"  type="number" name="mhr" id="mhr" placeholder="Max Heartrate" title="Maximum heart rate achieved [Numeric value between 60 and 202]" required />
+                <select class="form-control" name="ea" id="ea" title="Exercise-induced angina [Y: Yes, N: No]" required>
                   <option value="" selected="true" disabled="disabled">-- Exercise Angina --</option> 
                   <option value="y">Y</option>
                   <option value="n">N</option>
                 </select>
-                <input  class="form-control"  type="number" step="0.1" name="op" id="op" placeholder="Old Peak" required />
-                <select class="form-control" name="sts" id="sts" required>
+                <input  class="form-control"  type="number" step="0.1" name="op" id="op" placeholder="Old Peak" title="ST [Numeric value measured in depression]" required />
+                <select class="form-control" name="sts" id="sts" title="The slope of the peak exercise ST segment [Up: upsloping, Flat: flat, Down: downsloping]" required>
                   <option value="" selected="true" disabled="disabled">-- ST Slope --</option> 
                   <option value="down">DOWN</option>
                   <option value="flat">FLAT</option>
                   <option value="up">UP</option>
                 </select>
-                <br>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
               <br>
@@ -101,18 +125,18 @@
           </div>
         </div>
       </section>
-
+      <footer>
+        <p>Dave Miller U. Lapojapo</p>
+        <ul>
+          <li><i class="fa-brands fa-github"></i></li>
+          <li><i class="fa-brands fa-facebook"></i></li>
+          <li><i class="fa-brands fa-instagram"></i></li>
+          <li><i class="fa-brands fa-twitter"></i></li>
+        </ul>
+      </footer>
     </main>
       
-   
+    
   </body>
-  <footer>
-    <p>Dave Miller U. Lapojapo</p>
-    <ul>
-      <li><i class="fa-brands fa-github"></i></li>
-      <li><i class="fa-brands fa-facebook"></i></li>
-      <li><i class="fa-brands fa-instagram"></i></li>
-      <li><i class="fa-brands fa-twitter"></i></li>
-    </ul>
-  </footer>
+  
 </html>

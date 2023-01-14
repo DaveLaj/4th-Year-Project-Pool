@@ -34,7 +34,7 @@ def classification(request):
     map_recg={"LVH": 0, "NORMAL": 1, "ST": 2}
     map_ea={'N': 0, 'Y': 1}
     map_sts={"DOWN": 0, "FLAT": 1, "UP": 2} 
-
+    
     if request.method == 'POST':
 
         form_posted = True
@@ -74,9 +74,6 @@ def classification(request):
         col9 = None
         col10 = None
         col11 = None
-
-
-
 
 
     

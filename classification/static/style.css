@@ -12,36 +12,61 @@
 main{
     background-image:url('images/v870-tang-35.jpg'); 
     background-repeat:repeat; 
-    background-size:100%;
-
+    background-size:cover;
+    
+    overflow: hidden;
 }
 #mainform {
-    width: 500px;
+    position:relative;
+    width: 29.9rem;
     height: auto;
-    margin-right: 2rem;
-    margin-top: 3rem;
+    margin-left: 8rem;
+    margin-top: 7rem;
     border: 1px;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgb(0, 0, 0);
     background-image: linear-gradient(to right, rgb(188, 234, 248), rgb(188, 234, 248));
-    overflow: hidden;
     padding-left: 6%;
-    padding-right: 5%;
+    padding-right: 6%;
     padding-top: 3%;
     padding-bottom: 3%;
-  }
-input.form-control{
-    width: 300px;
-    margin: .7rem;
+    margin-bottom:1em;
+}
 
+input.form-control{
+    width: 360px;
+    margin: .7rem;
 
 }
+
+
+
+
+
+/* input.form-control::before, 
+input.form-control::after {
+
+    /* --scale:0; */
+
+
+/* } */
+/* input.form-control::before{
+    content: attr(data-tooltip);
+    color:white;
+    padding:.5rem;
+    border-radius:.3rem;
+    text-align: center;
+    width: max-content;
+    max-width:100%;
+    background:#333;
+}
+input.form-control:hover{
+    --scale:1;
+} */
+
 select.form-control{
-    width: 300px;
+    width: 360px;
     margin: .7rem;
-
-
-
 }
 
 #text {
@@ -56,15 +81,15 @@ select.form-control{
     width: 570px;
     height: 1000px;
     color:rgb(1, 8, 3);
-    background-image: linear-gradient(rgb(0, 0, 0, 0.1), rgb(0, 0, 0, 0.1)), url(images/smilingdoctor.jpg);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.7)), url(images/cardback.jpg);
     background-position: center;
     background-size: cover;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgb(0, 0, 0);
     box-sizing: border-box;
     cursor: pointer;
-    margin-left: 10rem;
-    margin-top: 3rem;
+    margin-left: 15rem;
+    margin-top: 7rem;
     padding-left: 5%;
     padding-right: 5%;
   }
@@ -72,20 +97,20 @@ select.form-control{
     flex-basis: 35%;
 }
 .row{
-
     margin-bottom: 5rem;
+    overflow:hidden;
 }
 footer {
-    background-image: linear-gradient(to right, rgba(43, 47, 253, 0.9), rgb(42, 44, 146));
-    opacity: 75%;
+    background-image: linear-gradient(to right, rgba(43, 176, 253, 0.9), rgb(43, 176, 253, 0.9));
+    opacity: 0%;
     position: relative;
     bottom: 0;
     padding: 1em 1.5em;
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+    overflow: hidden;
+}
 footer p {
     color: rgb(255, 255, 255);
     text-transform: uppercase;
@@ -100,6 +125,46 @@ footer ul li {
 }
 footer ul li {
     margin-left: 1em;
+}
+
+
+
+.btn {
+    font-size: 20px ;
+    width: 100%;
+    margin: 3px 0;
+    padding: 12px 20px;
+    text-transform: uppercase;
+    border-radius: var(--bradius);
+    font-weight: bold;
+    background-image: linear-gradient(to right, rgb(0, 76, 139), rgb(0, 76, 139));
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#seal{
+    content:url('images/iitseal.png');
+    height: 30px;
+    width: 30px;
+}
+
+header {
+    display: flex;
+    background-color: linear-gradient(to right, rgb(82, 121, 250), rgb(1, 5, 20));
+    opacity: 50%;
+    justify-content: space-between;
+    padding: 2em 1em;
+    border: var(--border);  
+    height:auto;
+}
+
+.navbar-nav li{
+    padding: 0px 20px;
+    
+}
+.navbar-nav li a:hover{
+  color:rgb(0, 255, 34);
 }
 
   
