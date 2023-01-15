@@ -28,19 +28,19 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav">
                 <li class="nav-item ">
-                  <a class="nav-link active" href="{% url 'index' %}">Home</a>
+                  <a class="nav-link " href="{% url 'index' %}">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'dave' %}">ITD105 Classification</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="">ITD105 Regression</a>
+                  <a class="nav-link" href="{% url 'bikeindex' %}">ITD105 Regression</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ITD112 Project 1</a>
+                    <a class="nav-link" href="{% url 'project1' %}">ITD112 Project 1</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'project2' %}">ITD112 Project 2</a>
+                <li class="nav-item active">
+                    <a class="nav-link active" href="{% url 'project2' %}">ITD112 Project 2</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">ITD112 Project 3</a>
@@ -52,9 +52,10 @@
     </div>
     <div id="divbody">
       <div id="mapdesc">
-        <center><h1>Map of All Fastfood Restaurants in USA</h1></center>
+        <center><h1>Map of All Fastfood Restaurants in USA 2022</h1></center>
         <br>
-        <center><p>The map below contains all the fastfood names along with the type of restaurant on hover.</p></center>
+        <p>The dataset used for this map contains the longitude and latitude of the most popular fastfood locations in the US. Moreover, you can easily ascertain the locations of the restaurant you need to find by using the search bar below.</p>
+        <p>The map below contains all the fastfood names along with the type of restaurant on hover. </p>
         <center>
           <form method="post" id="form-container-sm"> 
             {% csrf_token %}

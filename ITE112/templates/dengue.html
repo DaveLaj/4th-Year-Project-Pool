@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href=" {% static 'denguestyle.css' %}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script  defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(210, 214, 253);">
+    <div id="barcontainer" class="w-100">
+        
+        <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:rgb(18, 91, 128);
+        box-shadow: 0 10px 20px rgb(0, 0, 0);">
+          <div class="container">
+            <img id="seal">
+            <h2><a class="navbar-brand" href="#">Final Projects</a></h2>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item ">
+                  <a class="nav-link " href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'dave' %}">ITD105 Classification</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'bikeindex' %}">ITD105 Regression</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link active" href="{% url 'project1' %}">ITD112 Project 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'project2' %}">ITD112 Project 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ITD112 Project 3</a>
+                </li>
+              </ul>
+            </div>
+          </div>   
+        </nav>
+    </div>
+    <div>
+        <div id="cardtop" class="card">
+          <br>
+          <center><h1>DOH Dengue Data by Year 2016-2021</h1></center>
+          <hr>
+          <div id="para">
+            <p>Dengue is a viral illness that is prevalent in the Philippines. It is transmitted by mosquitoes and is characterized by symptoms such as fever, headache, muscle and joint pain, and a rash. In severe cases, dengue can lead to dengue hemorrhagic fever, which can cause severe bleeding, organ failure, and even death.</p>
+          </div>
+          
+        </div>
+    </div>
+    <div class="the2cards">
+        <div id="cardleft" class="card">
+          <div class="form-container">
+            <form method="post">
+              {% csrf_token %}
+                <p id="label">Choose a Location: &nbsp</p>
+                <select id='select'class="form-select" name="location" id="location" onchange="this.form.submit()">
+                  <option disabled selected value>-- All Locations --</option>
+                  {% for loc in context.locationlist %}
+                  <option value="{{loc}}">{{ loc }}</option>
+                  {% endfor %}
+                </select>
+            </form>
+            <br><br>
+          </div>
+          <center><h2>Location: {{ context.location }}</h2></center>
+            <Br>
+            
+            <div id="graphdeets" class="container" style="display:flex">
+            
+              <span class="line"></span>
+  
+              <p id="casenumber">
+                Total Number of Cases :
+                <span class="case">{{ context.cases }}</span>
+              </p>
+
+              <p id="deathnumber">
+                Total Number of Deaths :
+                <span class="death">{{ context.deaths }}</span>
+
+              </p>
+            </div>
+            <div id="svg" style="margin-bottom: 5%;">{{ context.data|safe }}
+          </div>
+        </div>
+        
+        <div id="cardright" class="card">
+          <h3>Data Highlights</h3>
+          <br>
+
+          <ul>
+            <li><p>In 2019 there was a dengue epidemic which caused the case numbers to skyrocket to above 400,000.</p></li>
+            <li><p>It should be noted that the following year the cases dropped due to the efforts brought by the government to stop mosquito breeding sites.</p></li>
+            <li><p>The reason why the death amounts in 2016 were so high was in part of the deployment of Dengvaxia.</p></li>
+          </ul>
+        </div>
+    </div>
+</body>
+
+<footer>
+  <p>Dave Miller U. Lapojapo</p>
+  <ul>
+    <li><i class="fa-brands fa-github"></i></li>
+    <li><i class="fa-brands fa-facebook"></i></li>
+    <li><i class="fa-brands fa-instagram"></i></li>
+    <li><i class="fa-brands fa-twitter"></i></li>
+  </ul>
+</footer>
+</html>

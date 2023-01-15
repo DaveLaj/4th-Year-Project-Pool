@@ -78,6 +78,7 @@ header {
 }
   
 footer {
+    margin-top: 40px;
     background-image: linear-gradient(to right, rgba(43, 176, 253, 0.9), rgb(43, 176, 253, 0.9));
     opacity: 75%;
     position: relative;

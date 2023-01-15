@@ -150,6 +150,7 @@ footer ul li {
 }
 
 header {
+
     display: flex;
     background-color: linear-gradient(to right, rgb(82, 121, 250), rgb(1, 5, 20));
     opacity: 50%;

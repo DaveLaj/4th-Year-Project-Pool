@@ -107,4 +107,37 @@ def classification(request):
     return render(request, 'dave.html', context)
 
 
+def bike_input(request):
+    
+    return render(request, 'bikeinput.html')
 
+
+def bike_output(request):
+    # Get the text
+
+    seasontext = request.GET.get('season')
+    mnthtext = request.GET.get('mnth')
+    holitext = request.GET.get('holiday')
+    weekdtext = request.GET.get('weekday')
+    weasittext = request.GET.get('weathersit')
+    temptext = request.GET.get('temp')
+    atemptext = request.GET.get('atemp')
+    humtext =  request.GET.get('hum')
+    wndspdtext  = request.GET.get('windspeed')
+
+    sea = int(seasontext)
+    mnth = int(mnthtext)
+    holiday = int(holitext)
+    weekday = int(weekdtext)
+    weathersit = int(weasittext)
+    temp = float(temptext)
+    atemp = float(atemptext)
+    hum = float(humtext)
+    windspeed = float(wndspdtext)
+    filename = 'classification/models/bike_model.aiml'
+    loaded_model_v2 = joblib.load(filename)
+    sampletest = [[sea, mnth, holiday, weekday, weathersit, temp, atemp, hum, windspeed]]
+    predicted = loaded_model_v2.predict(sampletest)
+    
+    params = {'Category': round(predicted[0])}
+    return render(request, 'bike.html', params)
